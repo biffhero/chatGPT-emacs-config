@@ -123,7 +123,6 @@ Thank you.  Does the init.el file need to be changed?
 * A5
 Yes, the init.el file needs to be updated to handle the new format of
 the config.ini file. Here's the updated code:
-* Q6
 #+begin_src emacs-lisp
 ;; Require configparser library
 (require 'configparser)
