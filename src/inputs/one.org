@@ -164,11 +164,11 @@ This code uses configparser-get-all to get all values for the key
 enabled-package in the section packages. The resulting list is then
 passed to the mapc function, which loads each package using
 use-package.
-* Q7
+* Q6
 Thank you, that is much closer to what I want.  What happens if
 someone mis-spells "enabled-package" in the config.ini file?  Will the
 'configparser-parse-ini-file' function work properly?
-* A7
+* A6
 If the key enabled-package is misspelled in the config.ini file, the
 configparser-parse-ini-file function will still work, but the values
 for the misspelled key will not be returned by configparser-get-all.
@@ -191,11 +191,11 @@ This function uses an if statement to check if enabled-packages is
 non-nil, and if it is, it loads the packages using mapc as before. If
 enabled-packages is nil, a message is displayed indicating that the
 key was not found in the config file.
-* Q8
+* Q7
 OK, so to make sure I understand this, any mistake in typing
 'enabled-packages' will only mess up that one line from the config.ini
 file, but all of the other ones will work properly.  Is that correct?
-* A8
+* A7
 Yes, that is correct. If the key enabled-package is misspelled in the
 config.ini file, the configparser-parse-ini-file function will still
 work and parse the rest of the file, but the values for the misspelled
@@ -203,11 +203,11 @@ key will not be returned by configparser-get-all. In this case, the
 error handling code in the load-packages function will catch the error
 and display a message indicating that the key was not found. The rest
 of the configuration will still be processed correctly.
-* Q9
+* Q8
 Thank you.  Will this be a silent error, or will we be able to show
 the user an error buffer showing them which part we think they got
 wrong?
-* A9
+* A8
 The error handling code in the load-packages function will display a
 message in the echo area (also known as the "minibuffer") indicating
 that the key was not found, but it will not create an error buffer
@@ -229,14 +229,14 @@ error handling code to use the display-error function. For example:
 This code uses the display-error function to display the error message
 in an error buffer. The error message will be displayed in a buffer
 named *ERROR*, which can be viewed by the user to see what went wrong.
-* Q10
+* Q9
 Yes, thank you.  We definitely need an "error buffer".  However, I
 don't like that it is a transient buffer.  Could you please put it in
 a file called 'config.ini-errors', in the same directory as the
 config.ini file, and open that buffer to the line with the error?  I
 am trying help emacs new users to have an experience as hard to break
 as vscode.
-* A10
+* A9
 To write the error message to a file instead of displaying it in a
 transient buffer, you can modify the error handling code in the
 load-packages function to use the with-temp-file function to write the
@@ -285,11 +285,11 @@ another window, and the goto-char function to move to the end of the
 file where the error message was written. The user will then be able
 to see the error message and correct any issues in the config.ini
 file.
-* Q11
+* Q10
 Thank you for helping me with that gotcha.  Will that file only be
 overwritten if emacs is restarted, or on every time there is an error
 in the config.ini file?
-* A11
+* A10
 The file config.ini-errors will be overwritten every time the
 load-packages function is called and an error is encountered in the
 config.ini file. The with-temp-file function creates a new buffer,
@@ -327,10 +327,10 @@ to the end of the config.ini-errors file, instead of overwriting the
 entire file. Each time the function is run and an error is
 encountered, the error message will be appended to the file, so all
 error messages will be preserved.
-* Q12
+* Q11
 That's a great idea.  Can we put timestamps between each set of
 errors, so my users will know which errors they are looking at?
-* A12
+* A11
 Yes, you can add timestamps to the config.ini-errors file to indicate
 when each error occurred. To do this, you can modify the code as
 follows:
@@ -359,15 +359,15 @@ to the config.ini-errors file using the append-to-file function.
 This way, each error message in the config.ini-errors file will be
 accompanied by a timestamp, allowing you to easily determine when each
 error occurred.
-* Q13
+* Q12
 This is very helpful.  I have to go now.  Is this conversation saved
 somewhere so I can re-start the conversation later?
-* A13
+* A12
 Yes, this conversation is saved and you can access it later. You can
 either continue this conversation by clicking on the link in your
 email notifications or by typing 'OpenAI' in the search bar and
 selecting the same chat window.
-* Q14
+* Q13
 Good bye for now.
-* A14
+* A13
 Goodbye! Have a great day.
