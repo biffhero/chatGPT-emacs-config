@@ -1,0 +1,20 @@
+#+title init.el.org
+#+property: header-args:emacs-lisp :mkdirp yes :tangle ~/src/emacs-ideas/src/tangled/init.el
+* init.el
+  - chatGPT created init.el
+* header
+#+begin_src emacs-lisp
+
+
+
+
+#+end_src
+* footer
+#+begin_src emacs-lisp
+  (provide 'init)
+  ;; Local Variables:
+  ;; byte-compile-warnings: (not cl-functions)
+  ;; End:
+
+  ;;; init.el ends here
+#+end_src
